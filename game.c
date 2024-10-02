@@ -25,16 +25,6 @@ tile* init_apple(short int x, short int y)
     return apple;
 }
 
-int colliding(tile* A, tile* B)
-{
-    return A->x == B->x && A->y == B->y;
-}
-
-int wall_hit(tile* A)
-{
-    return A->x < 0 || A->x >= xMapSize || A->y < 0 || A->y >= yMapSize;
-}
-
 int step_forward(tile* snake, tile* apple)
 {
     tile *new_neck = (tile *) malloc(sizeof(tile));
@@ -77,8 +67,8 @@ void move_apple(tile* snake, tile* apple)
 {
     tile* current_tile = NULL;
     do {
-        apple->x = rand() % xMapSize;
-        apple->y = rand() % yMapSize;
+        apple->x = rand() % X_MAP_SIZE;
+        apple->y = rand() % Y_MAP_SIZE;
         if (colliding(snake, apple)) { continue; }
 
         current_tile = snake->next;

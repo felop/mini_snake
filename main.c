@@ -4,10 +4,10 @@
 
 int main() {
     SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window* window = SDL_CreateWindow("snake 30/09/2024", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, xWindowSize, yWindowSize, 0);
+    SDL_Window* window = SDL_CreateWindow("snake 30/09/2024", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, X_WINDOW_SIZE, Y_WINDOW_SIZE, 0);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-    //SDL_Surface* surface = SDL_CreateRGBSurface(0, xWindowSize, yWindowSize, 32, 0, 0, 0, 0);
-    SDL_RenderSetLogicalSize(renderer, xRes, yRes);
+    //SDL_Surface* surface = SDL_CreateRGBSurface(0, X_WINDOW_SIZE, Y_WINDOW_SIZE, 32, 0, 0, 0, 0);
+    SDL_RenderSetLogicalSize(renderer, X_RES, Y_RES);
     clear_screen(renderer);
 
     SDL_Event event;
@@ -41,7 +41,7 @@ int main() {
         clock_t t = clock();
         time = (float)t / CLOCKS_PER_SEC;
 
-        if (time >= last_time+inv_fps) {
+        if (time >= last_time+INV_FPS) {
             last_time = time;
 
             if (dir_buffer[0] != -1) {

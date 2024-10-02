@@ -64,10 +64,10 @@ int update_direction(SDL_Event event, tile* snake, int dir_buffer[2], int* start
 void draw_bodytile(SDL_Renderer* renderer, int x, int y, int direction, int r, int g, int b)
 {
     SDL_Rect rect = {
-            DotPerTile*x + 1,
-            DotPerTile*y + 1,
-            DotPerTile - 2,
-            DotPerTile - 2
+            DOT_PER_TILE*x + 1,
+            DOT_PER_TILE*y + 1,
+            DOT_PER_TILE - 2,
+            DOT_PER_TILE - 2
     };
     SDL_SetRenderDrawColor(renderer, r, g, b, 255);
     SDL_RenderFillRect(renderer, &rect);
@@ -76,10 +76,10 @@ void draw_bodytile(SDL_Renderer* renderer, int x, int y, int direction, int r, i
 void draw_bodyboundary(SDL_Renderer* renderer, int x, int y, int direction, int r, int g, int b)
 {
     SDL_Rect rect = {
-            DotPerTile*x + (DotPerTile-1)*(direction==0) + ((direction)%2),
-            DotPerTile*y + (DotPerTile-1)*(direction==3) + ((direction+1)%2),
-            1 + (DotPerTile - 3)*(direction%2),
-            1 + (DotPerTile - 3)*((direction+1)%2)
+            DOT_PER_TILE*x + (DOT_PER_TILE-1)*(direction==0) + ((direction)%2),
+            DOT_PER_TILE*y + (DOT_PER_TILE-1)*(direction==3) + ((direction+1)%2),
+            1 + (DOT_PER_TILE - 3)*(direction%2),
+            1 + (DOT_PER_TILE - 3)*((direction+1)%2)
     };
     SDL_SetRenderDrawColor(renderer, r, g, b, 255);
     SDL_RenderFillRect(renderer, &rect);
@@ -93,8 +93,8 @@ void draw_body(SDL_Renderer* renderer, tile* current_tile, tile* next_tile)
         draw_bodyboundary(renderer, current_tile->x, current_tile->y, (next_tile->direction+2)%4, 68, 107, 208);
     } else {
         // add eyes
-        SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
-        SDL_RenderDrawPoint(renderer, current_tile->x, current_tile->y);
+        //SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
+        //SDL_RenderDrawPoint(renderer, current_tile->x, current_tile->y);
     }
 }
 

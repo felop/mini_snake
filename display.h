@@ -2,23 +2,18 @@
 #define _DISPLAY_H
 
 
-#include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <SDL2/SDL.h>
-#include "game.h"
+#include "tile.h"
 
+#define DOT_PER_TILE 7
+#define PIX_PER_DOT 7
+#define X_RES X_MAP_SIZE * DOT_PER_TILE
+#define Y_RES Y_MAP_SIZE * DOT_PER_TILE
+#define X_WINDOW_SIZE X_RES * PIX_PER_DOT
+#define Y_WINDOW_SIZE Y_RES * PIX_PER_DOT
+#define INV_FPS .1
 
-#define DotPerTile 7
-#define PixPerDot 7
-#define xMapSize 10
-#define yMapSize 9
-#define xRes xMapSize * DotPerTile
-#define yRes yMapSize * DotPerTile
-#define xWindowSize xRes * PixPerDot
-#define yWindowSize yRes * PixPerDot
-#define inv_fps .1
-
+typedef struct _tile tile;
 
 int     get_direction(SDL_Event event);
 int     shift_buffer(int shift_amount, int buffer[2]);
@@ -32,4 +27,4 @@ void    clear_screen(SDL_Renderer* renderer);
 void    render_screen(SDL_Renderer* renderer);
 
 
-#endif _DISPLAY_H
+#endif
