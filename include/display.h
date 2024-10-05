@@ -2,7 +2,7 @@
 #define _DISPLAY_H
 
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "tile.h"
 
 #define DOT_PER_TILE 7
